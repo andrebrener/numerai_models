@@ -2,11 +2,9 @@
 #          File: main.py
 #        Author: Andre Brener
 #       Created: 15 Mar 2017
-# Last Modified: 15 Mar 2017
+# Last Modified: 13 May 2017
 #   Description: description
 # =============================================================================
-import os
-
 import pandas as pd
 
 from get_model import model_main
@@ -15,11 +13,11 @@ from sklearn.svm import SVR
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 
 
-def main(tourn_date, top_quant, mh_quant, ml_quant, low_quant, models):
+def main(top_quant, mh_quant, ml_quant, low_quant, models):
 
-    file_path = 'numerai_datasets_{}'.format(tourn_date)
-    data_path = '{}/data/cats_{}_{}_{}_{}'.format(
-        file_path, top_quant, mh_quant, ml_quant, low_quant)
+    file_path = 'numerai_datasets'
+    data_path = '{}/cats_{}_{}_{}_{}'.format(file_path, top_quant, mh_quant,
+                                             ml_quant, low_quant)
     train_df = pd.read_csv('{}/numerai_training_data.csv'.format(file_path))
     tourn_df = pd.read_csv('{}/numerai_tournament_data.csv'.format(file_path))
     tables_list = [('train', train_df, True), ('tournament', tourn_df, False)]
@@ -51,15 +49,10 @@ models = {
     'SVR': (SVR(), SVR_parameters)
 }
 
-working_dir = '/Users/andre/Documents/numerai_tournaments/'
-os.chdir(working_dir)
-
-tourn_date = '15-03'
-
 categories = [[0.8, 0.6, 0.4, 0.2], [0.9, 0.7, 0.3, 0.1]]
 
 for cat in categories:
     print(cat)
     top_quant, mh_quant, ml_quant, low_quant = cat
 
-    main(tourn_date, top_quant, mh_quant, ml_quant, low_quant, models)
+    main(top_quant, mh_quant, ml_quant, low_quant, models)

@@ -2,7 +2,7 @@
 #          File: get_dataset.py
 #        Author: Andre Brener
 #       Created: 14 Mar 2017
-# Last Modified: 15 Mar 2017
+# Last Modified: 13 May 2017
 #   Description: description
 # =============================================================================
 import os
@@ -69,8 +69,8 @@ def save_tables(data_path,
         y.columns = ['target']
         y.to_csv('{}/target.csv'.format(data_path), index=False)
     else:
-        ids = df['t_id'].to_frame()
-        ids.columns = ['t_id']
+        ids = df['id'].to_frame()
+        ids.columns = ['id']
         ids.to_csv('{}/ids.csv'.format(data_path), index=False)
 
     X.to_csv(x_path, index=False)
