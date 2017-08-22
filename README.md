@@ -1,5 +1,3 @@
-# numerai_models
-Machine Learning models to predict Numerai Datasets.
 # Prediction to Numerai Models
 
 This is an application that uses ML models to compete in Numerai tournaments.
