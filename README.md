@@ -1,6 +1,6 @@
 # Prediction to Numerai Models
 
-This is an application that uses ML models to compete in Numerai tournaments. The scripts are written and intended to use with Python 3.
+This is an application that uses Machine Learning models to compete in Numerai tournaments. The scripts are written and intended to use with Python 3.
 
 ## Getting Started
 
